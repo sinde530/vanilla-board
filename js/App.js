@@ -1,6 +1,7 @@
 const canvas = document.getElementById("Canvas");
 const ctx = canvas.getContext("2d");
 const colors = document.getElementsByClassName("Color");
+const range = document.getElementById("Range");
 
 canvas.width = 700;
 canvas.height = 700;
@@ -43,6 +44,11 @@ function handleColorClick(event) {
     console.log(color)
 }
 
+function handleRangeChange(event) {
+    const size = event.target.value;
+    ctx.lineWidth = size
+}
+
 if (canvas) {
     canvas.addEventListener("mousemove", onMouseMove);
     canvas.addEventListener("mousedown", startPainting);
@@ -50,10 +56,11 @@ if (canvas) {
     canvas.addEventListener("mouseleave", stopPainting)
 }
 
-// Array.from(colors).forEach(color =>
-//     color.addEventListener("click", handleColorClick)
-// );
-
 Array.from(colors).forEach(color =>
     color.addEventListener("click", handleColorClick)
 );
+
+
+if (range) {
+    range.addEventListener("input", handleRangeChange)
+}
