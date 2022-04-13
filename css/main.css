@@ -51,6 +51,11 @@ canvas{
 
 .controls .controls_colors{
     display: flex;
+    cursor: pointer;
+}
+
+.Color:active {
+    transform: scale(0.98);
 }
 
 .controls_colors .controls_color{
